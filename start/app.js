@@ -29,24 +29,23 @@ submit.onclick = function() {
   var uppercase = /[A-Z]/g;
   var number = /[0-9]/g;
   var invalidCharacters = /[^A-z0-9\!\@\#\$\%\^\&\*]/g;
+  var message = [];
   if (firstPasswordInput.value != secondPasswordInput.value) {
-    secondPasswordInput.setCustomValidity('Passwords must match.');
+    message.push('Passwords must match.');
   } else if (firstPasswordInput.value.length < 16 || firstPasswordInput.value.length > 100) {
-    firstPasswordInput.setCustomValidity("16-100 characters (longer is better)")
+    message.push("16-100 characters (longer is better)")
   } else if (!requiredSymbols.test(firstPasswordInput.value)) {
-    firstPasswordInput.setCustomValidity('Passwords must contain on of these symbols (@,#,$,%,^,&,*).');
+    message.push('Passwords must contain on of these symbols (@,#,$,%,^,&,*).');
   } else if (!number.test(firstPasswordInput.value)) {
-    firstPasswordInput.setCustomValidity('Passwords must contain At least one number.');
+    message.push('Passwords must contain At least one number.');
   } else if (!lowercase.test(firstPasswordInput.value)) {
-    firstPasswordInput.setCustomValidity('Passwords must contain At least one lowercase letter.');
+    message.push('Passwords must contain At least one lowercase letter.');
   } else if (!uppercase.test(firstPasswordInput.value)) {
-    firstPasswordInput.setCustomValidity('Passwords must contain At least one uppercase letter.');
+    message.push('Passwords must contain At least one uppercase letter.');
   }
   else if (invalidCharacters.test(firstPasswordInput.value)) {
-    firstPasswordInput.setCustomValidity('Passwords contains illegal symbols.');
+    message.push('Passwords contains illegal symbols.');
   } 
-  else {
-    firstPasswordInput.setCustomValidity('');
-    secondPasswordInput.setCustomValidity('');
-  }
+    firstPasswordInput.setCustomValidity(message.join(','));
+    secondPasswordInput.setCustomValidity(message.join(','));
 };
