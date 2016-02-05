@@ -34,7 +34,7 @@ submit.onclick = function() {
   } else if (firstPasswordInput.value.length < 16 || firstPasswordInput.value.length > 100) {
     firstPasswordInput.setCustomValidity("16-100 characters (longer is better)")
   } else if (!requiredSymbols.test(firstPasswordInput.value)) {
-    firstPasswordInput.setCustomValidity('Passwords must contain on of these characters (@,#,$,%,^,&,*).');
+    firstPasswordInput.setCustomValidity('Passwords must contain on of these symbols (@,#,$,%,^,&,*).');
   } else if (!number.test(firstPasswordInput.value)) {
     firstPasswordInput.setCustomValidity('Passwords must contain At least one number.');
   } else if (!lowercase.test(firstPasswordInput.value)) {
