@@ -41,7 +41,11 @@ submit.onclick = function() {
     firstPasswordInput.setCustomValidity('Passwords must contain At least one lowercase letter.');
   } else if (!uppercase.test(firstPasswordInput.value)) {
     firstPasswordInput.setCustomValidity('Passwords must contain At least one uppercase letter.');
-  } else {
+  }
+  else if (invalidCharacters.test(firstPasswordInput.value)) {
+    firstPasswordInput.setCustomValidity('Passwords contains illegal symbols.');
+  } 
+  else {
     firstPasswordInput.setCustomValidity('');
     secondPasswordInput.setCustomValidity('');
   }
