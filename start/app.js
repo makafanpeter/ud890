@@ -32,18 +32,21 @@ submit.onclick = function() {
   var message = [];
   if (firstPasswordInput.value != secondPasswordInput.value) {
     message.push('Passwords must match.');
-  } else if (firstPasswordInput.value.length < 16 || firstPasswordInput.value.length > 100) {
+  } 
+  if (firstPasswordInput.value.length < 16 || firstPasswordInput.value.length > 100) {
     message.push("16-100 characters (longer is better)")
-  } else if (!requiredSymbols.test(firstPasswordInput.value)) {
+  } if (!requiredSymbols.test(firstPasswordInput.value)) {
     message.push('Passwords must contain on of these symbols (@,#,$,%,^,&,*).');
-  } else if (!number.test(firstPasswordInput.value)) {
+  }  if (!number.test(firstPasswordInput.value)) {
     message.push('Passwords must contain At least one number.');
-  } else if (!lowercase.test(firstPasswordInput.value)) {
+  } 
+  if (!lowercase.test(firstPasswordInput.value)) {
     message.push('Passwords must contain At least one lowercase letter.');
-  } else if (!uppercase.test(firstPasswordInput.value)) {
+  } 
+  if (!uppercase.test(firstPasswordInput.value)) {
     message.push('Passwords must contain At least one uppercase letter.');
   }
-  else if (invalidCharacters.test(firstPasswordInput.value)) {
+   if (invalidCharacters.test(firstPasswordInput.value)) {
     message.push('Passwords contains illegal symbols.');
   } 
     firstPasswordInput.setCustomValidity(message.join(','));
